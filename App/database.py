@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
@@ -12,3 +13,7 @@ def create_db(app):
     
 def init_db(app):
     db.init_app(app)
+
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key = True)
+    name = db.Column(db.String(50))
