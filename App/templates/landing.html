@@ -8,7 +8,6 @@
 
 
     <h1>Welcome to Rocket Racoon's Spelling Bee</h1>
-    <p>This is a boileplate flask application which follows the MVC pattern for structuring the project.</p>
       
         <table>
         <tr>
@@ -34,10 +33,20 @@
             <label>Word Guess</label>
             <input type="text" placeholder="Guess the Word being hinted or said in the audio clip" name="word_guess" >  
             <input type="submit"> 
-            <input type="hidden" value="{{Word.word}}" name="hiding">
-            <button name="audio" >Push Me for Audio of the Word</button>
-
+            <input type="hidden" value="{{Word.word}}" name="dis" id="1">
+            
           </form>
-       
+          <div class="mb-5">
+            <button id="start" class="btn btn-success mt-5 me-3">Start Audio</button>
+          </div>
+
+          <button name="audio" id="talk">Push Me for Audio of the Word</button>
+          
+          
     {% endfor %}
+
+
+
+
     {% endblock %} 
+    <script src="./static/voice.js"></script>

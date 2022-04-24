@@ -4,6 +4,8 @@ from App.models import db,Word
 from gtts import gTTS
 import os
 
+
+
 from App.controllers import (
     create_user, 
     get_all_users,
@@ -52,7 +54,7 @@ def login_form():
     
     if request.method == 'POST':
         data=request.form
-        if data['username_login'] != 'admin':
+        if data['username_login'] != 'bob' and data['username_login'] != 'bobpass' :
             print ("error")
         else:
             return render_template('landing.html')
@@ -76,18 +78,16 @@ def login():
 def test():
     words = start_game(1)
     data= request.form
-    speech = data["hiding"]
-    language = 'en'
-    myObj = gTTS(speech,lang=language,slow=False)
-    myObj.save("welcome.mp3")
-    os.system("welcome.mp3")
+     
 
     #words = Word.query.all()
     if request.method == 'POST':
         
-
-        if data['hiding'] == data['word_guess']:
+        
+        if data['dis'] == data['word_guess']:
+            
             flash("Correct")
+            
             return render_template('landing.html', words = words)
         else:
             flash("Dam bro youre so wrong lmao")
